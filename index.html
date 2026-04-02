@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Календарь отпусков</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Календарь отпусков</h1>
+        <p>Нажмите на день, чтобы отметить его как отпускной.</p>
+      </header>
+
+      <section class="calendar-card" aria-label="Календарь">
+        <div class="calendar-toolbar">
+          <button id="prevMonth" class="nav-btn" aria-label="Предыдущий месяц">←</button>
+          <h2 id="monthTitle" aria-live="polite"></h2>
+          <button id="nextMonth" class="nav-btn" aria-label="Следующий месяц">→</button>
+        </div>
+
+        <div class="weekdays" aria-hidden="true">
+          <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+        </div>
+
+        <div id="calendarGrid" class="calendar-grid" role="grid"></div>
+      </section>
+
+      <section class="vacation-list-card">
+        <div class="vacation-list-header">
+          <h3>Отмеченные даты</h3>
+          <button id="clearAll" class="clear-btn">Очистить всё</button>
+        </div>
+        <ul id="vacationList" class="vacation-list"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
