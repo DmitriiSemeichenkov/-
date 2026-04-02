@@ -1,37 +1,57 @@
 :root {
-  --bg: #f5f7fb;
+  --bg: #f2f5fa;
   --surface: #ffffff;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --border: #d2d8e3;
-  --accent: #2563eb;
-  --accent-soft: #dbeafe;
-  --main: #0d9488;
-  --main-soft: #ccfbf1;
-  --extra: #7c3aed;
-  --extra-soft: #ede9fe;
-  --danger: #dc2626;
+  --text: #1a2a44;
+  --muted: #5b6d8a;
+  --border: #d6deea;
+  --brand: #0f4c97;
+  --brand-dark: #0b376d;
+  --brand-soft: #e8f0fb;
+  --accent: #f3b229;
+  --main: #0f4c97;
+  --main-soft: #e8f0fb;
+  --extra: #008b8b;
+  --extra-soft: #ddf6f6;
+  --danger: #c62828;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: linear-gradient(180deg, #eef3fb 0%, #f8fbff 28%, var(--bg) 100%);
 }
 
 .container {
-  max-width: 980px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 24px 16px 36px;
+  padding: 28px 16px 40px;
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 
-.header h1 { margin: 0; }
-.employee-banner { color: var(--muted); margin: 6px 0 0; }
+.header {
+  background: linear-gradient(120deg, var(--brand-dark), var(--brand));
+  color: #fff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 10px 30px rgba(15, 76, 151, 0.25);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.employee-banner {
+  margin: 8px 0 0;
+  color: #dbe8ff;
+  font-weight: 500;
+}
 
 .form-card,
 .calendar-card,
@@ -39,8 +59,18 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.07);
+  padding: 18px;
+  box-shadow: 0 6px 24px rgba(26, 42, 68, 0.08);
+}
+
+.form-card h2,
+.calendar-card h2,
+.vacation-list-card h3 {
+  margin-top: 0;
+  color: var(--brand-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1rem;
 }
 
 .period-form {
@@ -53,21 +83,29 @@ body {
 label {
   display: grid;
   gap: 4px;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 input,
 select,
-button {
-  font: inherit;
-}
+button { font: inherit; }
 
 input,
 select {
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 8px 10px;
+  padding: 9px 10px;
+  color: var(--text);
+  background: #fff;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(15, 76, 151, 0.2);
+  border-color: var(--brand);
 }
 
 .primary-btn,
@@ -79,21 +117,33 @@ select {
   background: #fff;
   padding: 8px 12px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .primary-btn {
-  background: var(--accent);
+  background: linear-gradient(120deg, var(--brand), #1b66be);
   color: #fff;
-  border-color: var(--accent);
+  border-color: var(--brand);
 }
 
-.clear-btn { color: var(--danger); }
+.primary-btn:hover,
+.nav-btn:hover,
+.list-btn:hover,
+.clear-btn:hover {
+  transform: translateY(-1px);
+}
+
+.clear-btn {
+  color: var(--danger);
+  border-color: #efc9c9;
+  background: #fff7f7;
+}
 
 .validation-message {
   min-height: 20px;
   color: var(--danger);
   margin: 10px 0 0;
+  font-weight: 600;
 }
 
 .calendar-toolbar {
@@ -101,6 +151,12 @@ select {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+}
+
+#monthTitle {
+  margin: 0;
+  font-size: 1.15rem;
+  text-transform: capitalize;
 }
 
 .weekdays,
@@ -113,37 +169,39 @@ select {
 .weekdays {
   color: var(--muted);
   margin-bottom: 8px;
+  font-size: 0.86rem;
+  text-transform: uppercase;
 }
 
 .day-btn {
   border: 1px solid var(--border);
   border-radius: 10px;
-  min-height: 78px;
+  min-height: 84px;
   background: #fff;
-  padding: 6px;
-  text-align: left;
+  padding: 7px;
   display: grid;
   align-content: space-between;
+  font-weight: 700;
 }
 
 .day-btn.other-month {
-  color: #9ca3af;
-  background: #f8fafc;
+  color: #9ca9c0;
+  background: #f7f9fd;
 }
 
 .day-btn.today {
-  box-shadow: inset 0 0 0 1px var(--accent);
   border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
 }
 
 .day-btn.main {
   background: var(--main-soft);
-  border-color: var(--main);
+  border-color: #8fb2de;
 }
 
 .day-btn.extra {
   background: var(--extra-soft);
-  border-color: var(--extra);
+  border-color: #7ec6c6;
 }
 
 .badges {
@@ -153,15 +211,17 @@ select {
 }
 
 .badge {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   padding: 2px 6px;
   border-radius: 999px;
   color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .badge.main { background: var(--main); }
 .badge.extra { background: var(--extra); }
-.badge.esv { background: #f59e0b; color: #111827; }
+.badge.esv { background: var(--accent); color: #18263b; }
 
 .vacation-list-header {
   display: flex;
@@ -182,6 +242,7 @@ select {
 
 .vacation-item {
   border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
   border-radius: 10px;
   padding: 10px;
   display: flex;
@@ -190,36 +251,51 @@ select {
   flex-wrap: wrap;
 }
 
-.item-meta { color: var(--muted); }
+.item-meta { color: var(--muted); margin-top: 4px; }
 .item-actions { display: flex; gap: 6px; }
-.list-btn.active { border-color: #f59e0b; background: #fef3c7; }
+.list-btn.active {
+  border-color: #f3c66a;
+  background: #fff4dd;
+}
 
 .totals {
   margin: 12px 0 0;
-  color: var(--muted);
+  color: var(--brand-dark);
+  font-weight: 700;
 }
 
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(9, 25, 49, 0.45);
   display: grid;
   place-items: center;
   z-index: 10;
+  backdrop-filter: blur(2px);
 }
 
 .modal.hidden { display: none; }
 
 .modal-card {
-  width: min(92vw, 420px);
+  width: min(92vw, 440px);
   background: #fff;
   border-radius: 14px;
   border: 1px solid var(--border);
   padding: 16px;
   display: grid;
   gap: 8px;
+  box-shadow: 0 12px 30px rgba(15, 76, 151, 0.2);
+}
+
+.modal-card h2 {
+  margin: 0 0 4px;
+  color: var(--brand-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1rem;
 }
 
 @media (max-width: 700px) {
-  .day-btn { min-height: 64px; }
+  .day-btn { min-height: 68px; }
+  .vacation-list-header { align-items: flex-start; flex-direction: column; }
 }
