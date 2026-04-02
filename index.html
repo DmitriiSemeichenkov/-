@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Календарь отпусков</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="employeeModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="employeeModalTitle">
+      <form id="employeeForm" class="modal-card">
+        <h2 id="employeeModalTitle">Введите ФИО сотрудника</h2>
+        <label for="employeeName">ФИО</label>
+        <input id="employeeName" name="employeeName" type="text" placeholder="Иванов Иван Иванович" required minlength="5" />
+        <button type="submit" class="primary-btn">Сохранить</button>
+      </form>
+    </div>
+
+    <main class="container">
+      <header class="header">
+        <h1>Календарь отпусков</h1>
+        <p id="employeeBanner" class="employee-banner"></p>
+      </header>
+
+      <section class="form-card">
+        <h2>Добавить период отпуска</h2>
+        <form id="periodForm" class="period-form">
+          <label>Тип отпуска
+            <select id="vacationType" required>
+              <option value="main">Основной</option>
+              <option value="extra">Дополнительный</option>
+            </select>
+          </label>
+          <label>Начало
+            <input type="date" id="startDate" required />
+          </label>
+          <label>Конец
+            <input type="date" id="endDate" required />
+          </label>
+          <button type="submit" class="primary-btn">Добавить период</button>
+        </form>
+        <p id="validationMessage" class="validation-message" aria-live="polite"></p>
+      </section>
+
+      <section class="calendar-card" aria-label="Календарь">
+        <div class="calendar-toolbar">
+          <button id="prevMonth" class="nav-btn" type="button" aria-label="Предыдущий месяц">←</button>
+          <h2 id="monthTitle" aria-live="polite"></h2>
+          <button id="nextMonth" class="nav-btn" type="button" aria-label="Следующий месяц">→</button>
+        </div>
+
+        <div class="weekdays" aria-hidden="true">
+          <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+        </div>
+
+        <div id="calendarGrid" class="calendar-grid" role="grid"></div>
+      </section>
+
+      <section class="vacation-list-card">
+        <div class="vacation-list-header">
+          <h3>Периоды отпусков</h3>
+          <div class="actions">
+            <button id="clearAll" type="button" class="clear-btn">Очистить всё</button>
+            <button id="exportXlsx" type="button" class="primary-btn">Скачать .xlsx</button>
+          </div>
+        </div>
+        <ul id="vacationList" class="vacation-list"></ul>
+        <p id="totalsText" class="totals"></p>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
