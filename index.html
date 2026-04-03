@@ -3,36 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Календарь отпусков</title>
+    <title>Документирование</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="container">
-      <header class="header">
-        <h1>Календарь отпусков</h1>
-        <p>Нажмите на день, чтобы отметить его как отпускной.</p>
+      <header class="hero">
+        <h1>Документирование</h1>
+        <p>Единое место, где команда хранит документы и ведет документацию как код.</p>
       </header>
 
-      <section class="calendar-card" aria-label="Календарь">
-        <div class="calendar-toolbar">
-          <button id="prevMonth" class="nav-btn" aria-label="Предыдущий месяц">←</button>
-          <h2 id="monthTitle" aria-live="polite"></h2>
-          <button id="nextMonth" class="nav-btn" aria-label="Следующий месяц">→</button>
-        </div>
-
-        <div class="weekdays" aria-hidden="true">
-          <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
-        </div>
-
-        <div id="calendarGrid" class="calendar-grid" role="grid"></div>
+      <section class="card">
+        <h2>Разделы</h2>
+        <div id="sections" class="grid"></div>
       </section>
 
-      <section class="vacation-list-card">
-        <div class="vacation-list-header">
-          <h3>Отмеченные даты</h3>
-          <button id="clearAll" class="clear-btn">Очистить всё</button>
-        </div>
-        <ul id="vacationList" class="vacation-list"></ul>
+      <section class="card">
+        <h2>Базовый процесс</h2>
+        <ol>
+          <li>Обновляйте документы в отдельных ветках.</li>
+          <li>Открывайте Pull Request с пояснением «что изменено и зачем».</li>
+          <li>После ревью объединяйте изменения в основную ветку.</li>
+        </ol>
       </section>
     </main>
 
